@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:00:33 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/02 20:17:29 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:04:22 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	void setNickname(std::string nickname);
 	void setPhoneNumber(std::string phoneNumber);
 	void setDarkestSecret(std::string darkestSecret);
+	void resetContact();
 };
 
 #endif

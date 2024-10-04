@@ -6,14 +6,14 @@
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 20:11:30 by anamieta          #+#    #+#              #
-#    Updated: 2024/10/02 20:46:26 by anamieta         ###   ########.fr        #
+#    Updated: 2024/10/04 18:26:02 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PhoneBook
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17
 
 SRC = PhoneBook.cpp Contact.cpp main.cpp
 OBJS = ${SRC:%.cpp=%.o}

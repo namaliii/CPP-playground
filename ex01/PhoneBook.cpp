@@ -6,13 +6,12 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:21:23 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/02 20:58:04 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:39:44 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-// initialize contactCount right at the moment of the object's creation
 PhoneBook::PhoneBook() : contactCount(0) {
 	// std::cout << "PhoneBook created" << std::endl;
 }
@@ -22,7 +21,7 @@ PhoneBook::~PhoneBook() {
 }
 
 int PhoneBook::getContactIndex() {
-	return contactCount % 8;
+	return contactCount % MAX_CONTACT;
 }
 
 bool PhoneBook::validatePhoneNumber(std::string& phoneNumber) {
@@ -65,7 +64,6 @@ void PhoneBook::addContact() {
 	int index = getContactIndex();
 	std::cout << "Adding new contact at index: " << index + 1 << std::endl;
 	contacts[index].setFirstName(inputField("first name"));
-	std::cout << "First Name: " << contacts[index].getFirstName() << std::endl; // Debugging
 	contacts[index].setLastName(inputField("last name"));
 	contacts[index].setNickname(inputField("nickname"));
 	std::string phoneNumber;
@@ -84,7 +82,7 @@ void PhoneBook::searchContact() {
 	std::cout << std::setw(10) << "First name" << "|";
 	std::cout << std::setw(10) << "Last name" << "|";
 	std::cout << std::setw(10) << "Nickname" << std::endl;
-	for (int i = 0; i < contactCount; i++) {
+	for (int i = 0; i < MAX_CONTACT; i++) {
 		std::cout << std::setw(10) << i + 1 << "|";
 		std::cout << std::setw(10) << formatString(contacts[i].getFirstName()) << "|";
 		std::cout << std::setw(10) << formatString(contacts[i].getLastName()) << "|";
@@ -98,7 +96,7 @@ void PhoneBook::searchContact() {
         return ;
     }
 	int index = std::stoi(input) - 1;
-	if (index >= 0 && index < std::min(contactCount, 8)) {
+	if (index >= 0 && index < std::min(contactCount, MAX_CONTACT)) {
 		std::cout << "First name: " << contacts[index].getFirstName() << std::endl;
 		std::cout << "Last name: " << contacts[index].getLastName() << std::endl;
 		std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
