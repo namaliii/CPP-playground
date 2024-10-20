@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/24 19:29:01 by anamieta          #+#    #+#              #
-#    Updated: 2024/10/04 18:25:56 by anamieta         ###   ########.fr        #
+#    Created: 2024/10/17 21:28:51 by anamieta          #+#    #+#              #
+#    Updated: 2024/10/17 21:32:51 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++17
+CFLAFS = -Wall -Wextra -Werror -std=c++17
 
 SRC = megaphone.cpp
 OBJS = ${SRC:%.cpp=%.o}

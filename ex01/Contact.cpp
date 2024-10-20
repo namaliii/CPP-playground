@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 16:19:15 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/04 17:46:25 by anamieta         ###   ########.fr       */
+/*   Created: 2024/10/18 20:21:11 by anamieta          #+#    #+#             */
+/*   Updated: 2024/10/18 21:01:16 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,4 @@ void Contact::setPhoneNumber(std::string phoneNumber) {
 
 void Contact::setDarkestSecret(std::string darkestSecret) {
 	this->darkestSecret = darkestSecret;
-}
-
-void Contact::resetContact() {
-	setFirstName("");
-	setLastName("");
-	setNickname("");
-	setPhoneNumber("");
-	setDarkestSecret("");
 }
