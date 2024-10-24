@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 22:18:31 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/24 18:05:38 by anamieta         ###   ########.fr       */
+/*   Created: 2024/10/24 18:19:06 by anamieta          #+#    #+#             */
+/*   Updated: 2024/10/24 18:22:00 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) {
-	this->name = name;
-	std::cout << name << " crawls out of the graveyard..." << std::endl;
-}
+int main(void) {
+	Zombie *heapZombie;
 
-Zombie::~Zombie() {
-	std::cout << "R.I.P. " << name << " returned to the graveyard" << std::endl;
-}
-
-void Zombie::announce(void) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	heapZombie = newZombie("Joanna");
+	heapZombie->announce();
+	randomChump("stack Steven");
+	delete(heapZombie);
+	return(0);
 }
