@@ -6,12 +6,11 @@
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 19:20:16 by anamieta          #+#    #+#              #
-#    Updated: 2024/10/24 21:20:15 by anamieta         ###   ########.fr        #
+#    Updated: 2024/10/24 21:29:07 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = zombie
+NAME = moar_brainz
 
 CC = c++
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17
