@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:23:55 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/25 20:45:17 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:50:10 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ void replace_file(int argc, char** argv) {
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
+	if (s1.empty() || s2.empty()) {
+		std::cerr << "Error: arguments cannot be empty" << std::endl;
+		return;
+	}
 	std::ifstream file(filename.c_str());
 	if (!file.is_open()) {
 		std::cerr << "Error: Could not open file " << filename << std::endl;
