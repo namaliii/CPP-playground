@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:10:07 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/27 22:13:26 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:51:36 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Harl {
 		void warning(void);
 		void error(void);
 		int getLevelIndex(const std::string &level);
-		void complain(std::string level);
 	public:
 		Harl();
 		~Harl();

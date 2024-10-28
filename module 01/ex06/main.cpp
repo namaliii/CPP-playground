@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:09:48 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/27 22:10:13 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:51:49 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int main(int argc, char** argv) {
 	if (argc != 2) {
-		std::cerr << "Wrong number of arguments!" << std::endl;
+		std::cerr << "Usage: " << argv[0] << " <complaint level>" << std::endl;
 		return 1;
 	}
 	Harl harl;

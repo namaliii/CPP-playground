@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:10:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/27 22:03:49 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:49:55 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,48 +40,25 @@ int Harl::getLevelIndex(const std::string& level) {
 	return -1;
 }
 
-void Harl::complain(std::string level) {
-	void (Harl::*complaints[4])(void) = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	for (int i = 0; i < 4; i++) {
-		if (level == levels[i]) {
-			(this->*complaints[i])();
-			std::cout << std::endl;
-			return;
-		}
-	}
-	std::cout << "Invalid complaint level" << std::endl;
-}
-
 void Harl::filterComplaints(const std::string &level) {
 	int levelIndex = getLevelIndex(level);
 
-	if (levelIndex == -1) {
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	}
-	for (int i = 0; i <= levelIndex; ++i) {
-		switch (i) {
-			case 0:
-				std::cout << "[ DEBUG ]" << std::endl;
-				this->debug();
-				break;
-			case 1:
-				std::cout << "[ INFO ]" << std::endl;
-				this->info();
-				break;
-			case 2:
-				std::cout << "[ WARNING ]" << std::endl;
-				this->warning();
-				break;
-			case 3:
-				std::cout << "[ ERROR ]" << std::endl;
-				this->error();
-				break;
-		}
+	switch (levelIndex) {
+		case 0:
+			std::cout << "[ DEBUG ]" << std::endl;
+			this->debug();
+		case 1:
+			std::cout << "[ INFO ]" << std::endl;
+			this->info();
+		case 2:
+			std::cout << "[ WARNING ]" << std::endl;
+			this->warning();
+		case 3:
+			std::cout << "[ ERROR ]" << std::endl;
+			this->error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
 }
