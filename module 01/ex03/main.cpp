@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:12:51 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/25 18:20:42 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/28 13:54:04 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-return 0;
+	return 0;
 }
