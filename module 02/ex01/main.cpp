@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:39:25 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/31 20:49:36 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:15:56 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main( void ) {
 	Fixed const d( b );
 
 	a = Fixed( 1234.4321f );
-	
+
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
