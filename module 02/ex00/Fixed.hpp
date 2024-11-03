@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:36:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/10/30 21:55:32 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/10/31 20:39:20 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ class Fixed {
 	public:
 		Fixed();
 		Fixed(Fixed const& copy);
-		Fixed& operator = (Fixed const& rhs);
 		~Fixed();
+		Fixed& operator=(Fixed const& rhs);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
 
+std::ostream& operator<<(std::ostream &os, const Fixed& fixed);
 # endif
