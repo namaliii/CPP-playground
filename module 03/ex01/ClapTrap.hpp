@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 21:31:04 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/06 22:05:58 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:21:29 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string name;
 		unsigned int hitPoints = 10;
 		unsigned int energyPoints = 10;
