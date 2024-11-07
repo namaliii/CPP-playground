@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:16:43 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/07 18:31:50 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/07 18:49:58 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@
 
 class ScavTrap : public ClapTrap {
 	public:
+		ScavTrap();
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &copy);
 		~ScavTrap();
+
+		ScavTrap& operator=(const ScavTrap& rhs);
 
 		void attack(const std::string& target);
 		void guardGate();
