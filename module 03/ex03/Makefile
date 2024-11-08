@@ -6,11 +6,11 @@
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 21:30:40 by anamieta          #+#    #+#              #
-#    Updated: 2024/11/08 16:12:43 by anamieta         ###   ########.fr        #
+#    Updated: 2024/11/08 17:15:24 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 CC = c++
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17
