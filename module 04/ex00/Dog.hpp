@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:39:43 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/08 17:42:16 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:10:02 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog : public Animal {
 
 	Dog& operator=(const Dog& rhs);
 
-	void makeSound();
+	void makeSound() const override;
 };
 
 # endif

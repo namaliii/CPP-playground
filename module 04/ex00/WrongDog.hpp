@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongDog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 17:30:01 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 13:37:13 by anamieta         ###   ########.fr       */
+/*   Created: 2024/11/08 17:39:43 by anamieta          #+#    #+#             */
+/*   Updated: 2024/11/09 13:12:46 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGDOG_HPP
+# define WRONGDOG_HPP
 
-# include <iostream>
+# include "WrongAnimal.hpp"
 
-class Animal {
-	protected:
-		std::string type;
+class WrongDog : public WrongAnimal {
 	public:
-		Animal();
-		Animal(const Animal &copy);
-		virtual ~Animal();
+	WrongDog();
+	WrongDog(const WrongDog &copy);
+	~WrongDog();
 
-		Animal& operator=(const Animal& rhs);
+	WrongDog& operator=(const WrongDog& rhs);
 
-		virtual void makeSound() const;
-
-		std::string getType() const;
+	void makeSound() const override;
 };
 
 # endif
