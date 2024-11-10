@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:02:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 13:59:14 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:48:30 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 #include "WrongCat.hpp"
 #include "WrongDog.hpp"
 
-void le() {
-	system("leaks Animal");
-}
-
 int main(void) {
-	// atexit(le);
 	const Animal* meta = new Animal();
 	const Animal* Fafik = new Dog();
 	const Animal* Garfield = new Cat();
