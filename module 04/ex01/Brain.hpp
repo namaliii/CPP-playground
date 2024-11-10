@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 12:52:09 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/10 21:57:23 by anamieta         ###   ########.fr       */
+/*   Created: 2024/11/10 16:21:19 by anamieta          #+#    #+#             */
+/*   Updated: 2024/11/10 21:56:47 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
+# include <iostream>
+# include "Colors.hpp"
 
-#include <iostream>
-
-class Cat : public Animal {
+class Brain {
 	private:
-		Brain *catBrain;
+		std::string ideas[100];
 	public:
-		Cat();
-		Cat(const Cat &copy);
-		~Cat();
+		Brain();
+		Brain(const Brain &copy);
+		~Brain();
 
-		Cat& operator=(const Cat& rhs);
+		Brain& operator=(const Brain& rhs);
 
-		void makeSound() const override;
-		void addIdea(const std::string& idea) const;
-		Brain& getBrain() const;
+		void newIdea(const std::string& idea);
+		void printIdeas() const;
 };
 
-#endif
+# endif

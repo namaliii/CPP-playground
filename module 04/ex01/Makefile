@@ -6,16 +6,16 @@
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 17:29:40 by anamieta          #+#    #+#              #
-#    Updated: 2024/11/09 13:44:18 by anamieta         ###   ########.fr        #
+#    Updated: 2024/11/10 20:13:36 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = Brain
 
 CC = c++
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17
 
-SRC = main.cpp Animal.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Dog.cpp WrongDog.cpp
+SRC = main.cpp Brain.cpp Animal.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Dog.cpp WrongDog.cpp
 OBJS = ${SRC:%.cpp=%.o}
 
 %.o: %.cpp
