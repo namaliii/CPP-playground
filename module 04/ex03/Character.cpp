@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:10:54 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 19:09:18 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:56:09 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Character::unequip(int idx) {
 		std::cout << "Index " << idx << " invalid" << std::endl;
 		return;
 	}
-	else if (!inventory[idx]) {
+	if (!inventory[idx]) {
 		std::cout << "Inventory slot " << idx << " is empty!" << std::endl;
 		return;
 	}
