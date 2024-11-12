@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:03:26 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/11 22:36:25 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:22:58 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AMateria {
 
 		AMateria& operator=(const AMateria& rhs);
 		const std::string& getType() const;
-		virtual AMateria& clone() const = 0;
+		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };
 
