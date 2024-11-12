@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:34:22 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 20:00:54 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:07:34 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void MateriaSource::learnMateria(AMateria* newMateria) {
 		else if (this->materias[i] == nullptr)
 		{
 			this->materias[i] = newMateria;
-			std::cout << "Materia " << newMateria->getType() << " is now in memory."
+			std::cout << "Materia " << newMateria->getType() << " is now in memory." << std::endl;
 			return;
 		}
 	}
@@ -76,4 +76,5 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
 		}
 	}
 	std::cout << "Materia " << type << " is unknown." << std::endl;
+	return nullptr;
 }
