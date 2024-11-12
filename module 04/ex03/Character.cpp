@@ -6,20 +6,20 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:10:54 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 19:56:09 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:35:04 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "ICharacter.hpp"
 
-Character::Character() {
+Character::Character() : name("NONAME") {
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = nullptr;
 	}
 }
 
-Character::Character(std::string name) {
+Character::Character(const std::string& name) {
 	this->name = name;
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = nullptr;
@@ -65,8 +65,7 @@ const std::string& Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
-	if (m == nullptr)
-		return;
+	if (m == nullptr) return;
 	for (int i = 0; i < 4; i++) {
 		if (inventory[i] == nullptr) {
 			inventory[i] = m;
@@ -87,6 +86,7 @@ void Character::unequip(int idx) {
 		std::cout << "Inventory slot " << idx << " is empty!" << std::endl;
 		return;
 	}
+	delete inventory[idx];
 	inventory[idx] = nullptr;
 	std::cout << "Inventory slot " << idx << " has been unequipped" << std::endl;
 }

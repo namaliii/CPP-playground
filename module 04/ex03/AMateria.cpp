@@ -6,15 +6,15 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:03:18 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 19:24:26 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:17:06 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() {}
+AMateria::AMateria() : type("undefined") {}
 
-AMateria::AMateria(std::string type) : type(type) {}
+AMateria::AMateria(const std::string& type) : type(type) {}
 
 AMateria::AMateria(const AMateria& src) {
 	*this = src;

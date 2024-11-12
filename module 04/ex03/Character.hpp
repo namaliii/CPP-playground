@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:10:51 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 20:07:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:10:13 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Character : public ICharacter {
 		AMateria* inventory[4];
 	public:
 		Character();
-		Character(std::string name);
+		Character(const std::string& name);
 		Character(const Character& src);
 		~Character();
 		Character& operator=(const Character& rhs);

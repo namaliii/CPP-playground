@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:03:26 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 18:22:58 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:07:31 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AMateria {
 		std::string type;
 	public:
 		AMateria();
-		AMateria(std::string type);
+		AMateria(const std::string& type);
 		AMateria(const AMateria& src);
 		virtual ~AMateria();
 
