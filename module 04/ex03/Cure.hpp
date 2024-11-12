@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:31:40 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/11 22:31:56 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:27:32 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria {
 
 		Cure& operator=(const Cure& rhs);
 		Cure* clone() const;
-		void use(ICharacter& target);
+		void use(ICharacter& target) override;
 };
 
 #endif

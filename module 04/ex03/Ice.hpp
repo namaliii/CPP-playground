@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:23:30 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/11 22:34:10 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:27:13 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Ice : public AMateria {
 
 		Ice& operator=(const Ice& rhs);
 		Ice* clone() const;
-		void use(ICharacter& target);
+		void use(ICharacter& target) override;
 };
 
 #endif

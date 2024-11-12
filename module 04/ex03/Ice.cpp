@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:23:27 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/11 22:41:43 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:27:07 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ Ice* Ice::clone() const {
 }
 
 void Ice::use(ICharacter& target) {
-	std::cout << "* heals " << target.getName() <<"'s wounds *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() <<" *" << std::endl;
 }
