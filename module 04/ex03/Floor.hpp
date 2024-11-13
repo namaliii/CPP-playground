@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 22:23:27 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/13 15:43:12 by anamieta         ###   ########.fr       */
+/*   Created: 2024/11/13 14:56:29 by anamieta          #+#    #+#             */
+/*   Updated: 2024/11/13 15:32:59 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef FLOOR_HPP
+#define FLOOR_HPP
 
-Cure::Cure() : AMateria("cure") {}
+#include <iostream>
+#include "AMateria.hpp"
 
-Cure::Cure(const Cure& src) : AMateria(src) {}
+#define FLOOR_MAX 15
 
-Cure::~Cure() {}
+class Floor {
+	public:
+		AMateria* content[FLOOR_MAX];
+		Floor();
+		Floor(const Floor& src);
+		~Floor();
+		Floor& operator=(const Floor& rhs);
 
-Cure& Cure::operator=(const Cure& rhs) {
-	if (this != &rhs) {
-		AMateria::operator=(rhs);
-	}
-	return *this;
-}
+		bool addMateria(AMateria* materia);
+};
 
-Cure* Cure::clone() const {
-	return (new Cure(*this));
-}
-
-void Cure::use(ICharacter& target) {
-	std::cout << "* heals " << target.getName() <<"'s wounds *" << std::endl;
-}
+#endif

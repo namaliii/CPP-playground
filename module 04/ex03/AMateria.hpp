@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:03:26 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 22:07:31 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:52:20 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class AMateria {
 		AMateria(const std::string& type);
 		AMateria(const AMateria& src);
 		virtual ~AMateria();
+		bool status;
 
 		AMateria& operator=(const AMateria& rhs);
 		const std::string& getType() const;

@@ -6,12 +6,13 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 22:10:54 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/12 22:35:04 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:41:57 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "ICharacter.hpp"
+#include "Floor.hpp"
 
 Character::Character() : name("NONAME") {
 	for (int i = 0; i < 4; i++) {
@@ -73,22 +74,19 @@ void Character::equip(AMateria* m) {
 			return;
 		}
 	}
-	delete m;
 	std::cout << m->getType() << "'s inventory is full!" << std::endl;
+	delete m;
 }
 
 void Character::unequip(int idx) {
-	if (idx < 0 || idx > 3) {
-		std::cout << "Index " << idx << " invalid" << std::endl;
-		return;
+	if (idx >= 0 && idx < 4 && inventory[idx] != nullptr) {
+		if (!inventoryFloor.addMateria(inventory[idx])) {
+			std::cout << "Floor is full! Could not unequip." << std::endl;
+		} else {
+			std::cout << "Materia " << inventory[idx]->getType() << " has been unequipped" << std::endl;
+			inventory[idx] = nullptr;
+		}
 	}
-	if (!inventory[idx]) {
-		std::cout << "Inventory slot " << idx << " is empty!" << std::endl;
-		return;
-	}
-	delete inventory[idx];
-	inventory[idx] = nullptr;
-	std::cout << "Inventory slot " << idx << " has been unequipped" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {

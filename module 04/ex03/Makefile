@@ -6,16 +6,16 @@
 #    By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 22:38:53 by anamieta          #+#    #+#              #
-#    Updated: 2024/11/12 20:08:32 by anamieta         ###   ########.fr        #
+#    Updated: 2024/11/13 15:28:58 by anamieta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = AMateria
 
 CC = c++
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17
+CFLAGS = -g3 -Wall -Wextra -Werror -std=c++17 #-fsanitize=address
 
-SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Floor.cpp Ice.cpp MateriaSource.cpp
 OBJS = ${SRC:%.cpp=%.o}
 
 %.o: %.cpp
