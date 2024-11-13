@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:58:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 13:43:10 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/13 21:19:39 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal {
 
 		WrongAnimal& operator=(const WrongAnimal& rhs);
 
-		virtual void makeSound() const;
+		void makeSound() const;
 
 		std::string getType() const;
 };
