@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 20:03:01 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/13 15:37:34 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/13 22:39:27 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include "Character.hpp"
 
 #define BOLD_UNDERLINE(text) "\033[1;4m" << text << "\033[0m"
-
-void le() {
-	system("leaks AMateria");
-}
-
 
 int main() {
 	IMateriaSource* src = new MateriaSource();

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:02:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/10 22:09:31 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/13 22:50:55 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void) {
 	std::cout << BOLD("\nPolymorphism: Just checkin\'\n") << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* Fafik = new Dog();
-	const WrongAnimal* WrongGarfield = new WrongCat();
+	const Animal* Romeo = new Cat();
 	std::cout << std::endl;
 	std::cout << "Object meta " << meta->getType() << "has no type yet and does \"";
 	meta->makeSound();
@@ -27,13 +27,14 @@ int main(void) {
 	std::cout << "Object Fafik is a " << Fafik->getType() << " and does \"";
 	Fafik->makeSound();
 	std::cout << "\"" << std::endl;
-	std::cout << "Object WrongGarfield is a " << WrongGarfield->getType() << " and does \"";
-	WrongGarfield->makeSound();
+	std::cout << "Object Romeo is a " << Romeo->getType() << " and does \"";
+	Romeo->makeSound();
 	std::cout << "\"\n" << std::endl;
 	delete meta;
 	delete Fafik;
-	delete WrongGarfield;
-	std::cout << "***************************" << std::endl;
+	delete Romeo;
+	std::cout << "\n***************************\n" << std::endl;
+
 	std::cout << BOLD("\nArray of animal objects, half of which are dogs, half are cats\n") << std::endl;
 	const Animal* animals[8];
 	for (int i = 0; i < 4; i++) {
@@ -47,7 +48,7 @@ int main(void) {
 	for (int i = 0; i < 8; i++) {
 		delete animals[i];
 	}
-	std::cout << "***************************" << std::endl;
+	std::cout << "\n***************************\n" << std::endl;
 
 	std::cout << BOLD("\nAdding some ideas to the Brains!\n") << std::endl;
 	const Cat* Garfield = new Cat();
@@ -80,6 +81,11 @@ int main(void) {
 	delete Klakier;
 	delete Garfield;
 	delete Azor;
-	std::cout << "***************************" << std::endl;
+	std::cout << "\n***************************\n" << std::endl;
+	std::cout << BOLD("\nSubject deep copy check\n") << std::endl;
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
 	return 0;
 }
