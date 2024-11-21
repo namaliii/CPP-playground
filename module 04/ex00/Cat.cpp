@@ -6,10 +6,9 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:52:17 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 14:00:08 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:10:12 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Cat.hpp"
 
@@ -18,7 +17,7 @@ Cat::Cat() {
 	type = "Cat";
 }
 
-Cat::Cat(const Cat &copy) {
+Cat::Cat(const Cat &copy) : Animal(copy) {
 	std::cout << "Cat class copy constructor called" << std::endl;
 	*this = copy;
 }

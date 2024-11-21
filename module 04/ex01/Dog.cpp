@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:39:36 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/13 22:47:05 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:12:06 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() {
 	this->dogBrain = new Brain();
 }
 
-Dog::Dog(const Dog &copy) {
+Dog::Dog(const Dog &copy) : Animal(copy) {
 	std::cout << LIGHT_GREEN("Dog class copy constructor called") << std::endl;
 	dogBrain = new Brain(*copy.dogBrain);
 }

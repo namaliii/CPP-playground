@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:52:17 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/13 22:45:11 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:19:53 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat() {
 	this->catBrain = new Brain();
 }
 
-Cat::Cat(const Cat &copy) {
+Cat::Cat(const Cat &copy) : AAnimal(copy) {
 	std::cout << DARK_GREEN("Cat class copy constructor called") << std::endl;
 	catBrain = new Brain(*copy.catBrain);
 }

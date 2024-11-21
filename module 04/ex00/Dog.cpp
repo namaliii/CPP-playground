@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:39:36 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 14:00:03 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:11:30 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog() {
 	type = "Dog";
 }
 
-Dog::Dog(const Dog &copy) {
+Dog::Dog(const Dog &copy) : Animal(copy) {
 	std::cout << "Dog class copy constructor called" << std::endl;
 	*this = copy;
 }

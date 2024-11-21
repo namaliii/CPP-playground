@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:52:17 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/10 22:26:18 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:19:59 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongCat::WrongCat() {
 	this->wrongCatBrain = new Brain();
 }
 
-WrongCat::WrongCat(const WrongCat &copy) {
+WrongCat::WrongCat(const WrongCat &copy) : WrongAAnimal(copy) {
 	std::cout << DARK_GREEN("WrongCat class copy constructor called") << std::endl;
 	*this = copy;
 }

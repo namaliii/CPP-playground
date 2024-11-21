@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:39:36 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/09 14:00:24 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:17:21 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongDog::WrongDog() {
 	type = "WrongDog";
 }
 
-WrongDog::WrongDog(const WrongDog &copy) {
+WrongDog::WrongDog(const WrongDog &copy) : WrongAnimal(copy) {
 	std::cout << "WrongDog class copy constructor called" << std::endl;
 	*this = copy;
 }
