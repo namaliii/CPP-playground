@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:24:23 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 13:59:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:32:53 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Bureaucrat;
 
 class AForm {
 	protected:
-		void verifyExecution(const Bureaucrat& executor) const;
+		void 		verifyExecution(const Bureaucrat& executor) const;
 	private:
 		const		std::string name;
 		bool 		signedStatus;
