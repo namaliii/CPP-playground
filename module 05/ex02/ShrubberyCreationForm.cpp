@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:48:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 16:02:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:52:23 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	} else {
 		throw std::ios_base::failure("Failed to create file.");
 	}
+}
+
+const std::string& ShrubberyCreationForm::getTarget() const {
+	return target;
 }
