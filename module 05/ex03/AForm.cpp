@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:24:30 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:51:19 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:05:41 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void AForm::verifyExecution(const Bureaucrat& executor) const {
 }
 
 const std::string& AForm::getName() const {
+	if (name.empty()) {
+        throw std::runtime_error("Form is invalid!");
+    }
 	return name;
 }
 
@@ -72,15 +75,19 @@ void AForm::beSigned(const Bureaucrat& b) {
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
-	os << "Form Name: " << form.getName() << "\n"
-	<< "Signed: " << (form.isSigned() ? "Yes" : "No") << "\n"
-	<< "Grade required to sign: " << form.getSignGrade() << "\n"
-	<< "Grade required to execute: " << form.getExecGrade();
-	const ShrubberyCreationForm* shrubberyForm = dynamic_cast<const ShrubberyCreationForm*>(&form);
-    if (shrubberyForm) {
-        os << "\nTarget: " << shrubberyForm->getTarget();
-    }
-
+	try {
+		os << "Form Name: " << form.getName() << "\n"
+		<< "Signed: " << (form.isSigned() ? "Yes" : "No") << "\n"
+		<< "Grade required to sign: " << form.getSignGrade() << "\n"
+		<< "Grade required to execute: " << form.getExecGrade();
+		const ShrubberyCreationForm* shrubberyForm = dynamic_cast<const ShrubberyCreationForm*>(&form);
+		if (shrubberyForm) {
+			os << "\nTarget: " << shrubberyForm->getTarget();
+		}
+	} catch (const std::exception& e) {
+		 os << "Error: " << e.what() << std::endl;
+        return os;
+	}
 	return os;
 }
 

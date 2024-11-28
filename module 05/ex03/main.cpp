@@ -6,66 +6,56 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:25:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:47:26 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:26:04 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main(void) {
-	srand(time(0));
-	ShrubberyCreationForm shrubbery1("park");
-	std::cout << BLUE("\nAvailable forms:\n*********\n");
-	std::cout << shrubbery1 << std::endl;
-	std::cout << BLUE("*********") << std::endl;
-
-	std::cout << GREEN("\nTest 1:\n") << std::endl;
+int main() {
+	Intern intern;
 	Bureaucrat leo("Leo", 50);
-	Bureaucrat navid("Navid", 138);
-	try {
-		std::cout << navid << std::endl;
-		navid.signForm(shrubbery1);
-		navid.executeForm(shrubbery1);
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try {
-		std::cout << leo << std::endl;
-		leo.executeForm(shrubbery1);
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	RobotomyCreationForm robotomy("robot");
-	std::cout << BLUE("\nAvailable forms:\n*********\n");
-	std::cout << robotomy << std::endl;
-	std::cout << BLUE("*********") << std::endl;
 
-	std::cout << GREEN("\nTest 2:\n") << std::endl;
 	try {
-		std::cout << leo << std::endl;
-		leo.signForm(robotomy);
-		leo.executeForm(robotomy);
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		AForm* shrubbery = intern.makeForm("shrubbery creation", "Home");
+		if (shrubbery) {
+			shrubbery->beSigned(leo);
+			shrubbery->execute(leo);
+		}
+		delete shrubbery;
+	} catch (std::exception& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	try {
+		AForm* robotomy = intern.makeForm("robotomy request", "Bender");
+		if (robotomy) {
+			robotomy->beSigned(leo);
+			robotomy->execute(leo);
+		}
+		delete robotomy;
+	} catch (std::exception& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	try {
+		AForm* pardon = intern.makeForm("presidential pardon", "Alice");
+		if (pardon) {
+			pardon->beSigned(leo);
+			pardon->execute(leo);
+		}
+		delete pardon;
+	} catch (std::exception& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+	try {
+		AForm* invalid = intern.makeForm("invalid form", "Nowhere");
+		if (invalid) {
+			invalid->beSigned(leo);
+			invalid->execute(leo);
+		}
+		delete invalid;
+	} catch (std::exception& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 
-	PresidentialPardonForm pardon("Alice");
-	std::cout << BLUE("\nAvailable forms:\n*********\n");
-	std::cout << pardon << std::endl;
-	std::cout << BLUE("*********") << std::endl;
-
-	std::cout << GREEN("\nTest 3:\n") << std::endl;
-	Bureaucrat anna("Anna", 5);
-	try {
-		std::cout << anna << std::endl;
-		anna.signForm(pardon);
-		anna.executeForm(pardon);
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << std::endl;
 	return 0;
 }

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyCreationForm.cpp                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:46 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 15:27:47 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:45:24 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-RobotomyCreationForm::RobotomyCreationForm()
-	: AForm("RobotomyCreationForm", 72, 45), target("") {}
+RobotomyRequestForm::RobotomyRequestForm()
+	: AForm("RobotomyRequestForm", 72, 45), target("") {}
 
-RobotomyCreationForm::RobotomyCreationForm(const std::string& target)
-	: AForm("RobotomyCreationForm", 72, 45), target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+	: AForm("RobotomyRequestForm", 72, 45), target(target) {}
 
-RobotomyCreationForm::RobotomyCreationForm(const RobotomyCreationForm& src)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
 	: AForm(src), target(src.target) {}
 
-RobotomyCreationForm::~RobotomyCreationForm() {}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyCreationForm& RobotomyCreationForm::operator=(const RobotomyCreationForm& rhs) {
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs) {
 	if (this != &rhs) {
 		AForm::operator=(rhs);
 	}
 	return *this;
 }
 
-void RobotomyCreationForm::execute(const Bureaucrat& executor) const {
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	verifyExecution(executor);
 
 	std::cout << "Buzzzzz buzZz *** drilling noises ****" << std::endl;

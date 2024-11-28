@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyCreationForm.hpp                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:14 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 14:11:23 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:45:02 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYCREATIONFORM_HPP
-#define ROBOTOMYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
 class Bureaucrat;
 
-class RobotomyCreationForm : public AForm {
+class RobotomyRequestForm : public AForm {
 	private:
 		const		std::string target;
 	public:
-		RobotomyCreationForm();
-		RobotomyCreationForm(const std::string& target);
-		RobotomyCreationForm(const RobotomyCreationForm& src);
-		~RobotomyCreationForm();
-		RobotomyCreationForm& operator=(const RobotomyCreationForm& rhs);
+		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string& target);
+		RobotomyRequestForm(const RobotomyRequestForm& src);
+		~RobotomyRequestForm();
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
 
 		void execute(const Bureaucrat& executor) const override;
 };
