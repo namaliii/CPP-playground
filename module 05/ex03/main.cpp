@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:25:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/03 14:53:10 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 19:48:24 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,61 +17,60 @@ int main(void) {
 	Bureaucrat leo("Leo", 50);
 
 	std::cout << GREEN("\nTest 1:\n") << std::endl;
+	AForm* shrubbery = nullptr;
 	try {
-		AForm* shrubbery = intern.makeForm("shrubbery creation", "Home");
+		shrubbery = intern.makeForm("shrubbery creation", "Home");
 		std::cout << BLUE("*********") << std::endl;
 		std::cout << *shrubbery << std::endl;
 		std::cout << BLUE("*********") << std::endl;
-		if (shrubbery) {
-			shrubbery->beSigned(leo);
-			shrubbery->execute(leo);
-		}
-		delete shrubbery;
+		shrubbery->beSigned(leo);
+		shrubbery->execute(leo);
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	delete shrubbery;
+
 	std::cout << GREEN("\nTest 2:\n") << std::endl;
+	AForm* robotomy = nullptr;
 	try {
-		AForm* robotomy = intern.makeForm("robotomy request", "Bender");
+		robotomy = intern.makeForm("robotomy request", "Bender");
 		std::cout << BLUE("*********") << std::endl;
 		std::cout << *robotomy << std::endl;
 		std::cout << BLUE("*********") << std::endl;
-		if (robotomy) {
-			robotomy->beSigned(leo);
-			robotomy->execute(leo);
-		}
-		delete robotomy;
+		robotomy->beSigned(leo);
+		robotomy->execute(leo);
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	delete robotomy;
+
 	std::cout << GREEN("\nTest 3:\n") << std::endl;
+	AForm* pardon = nullptr;
 	try {
-		AForm* pardon = intern.makeForm("presidential pardon", "Alice");
+		pardon = intern.makeForm("presidential pardon", "Alice");
 		std::cout << BLUE("*********") << std::endl;
 		std::cout << *pardon << std::endl;
 		std::cout << BLUE("*********") << std::endl;
-		if (pardon) {
-			pardon->beSigned(leo);
-			pardon->execute(leo);
-		}
-		delete pardon;
+		pardon->beSigned(leo);
+		pardon->execute(leo);
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	delete pardon;
+
 	std::cout << GREEN("\nTest 4:\n") << std::endl;
+	AForm* invalid = nullptr;
 	try {
-		AForm* invalid = intern.makeForm("invalid form", "Nowhere");
+		invalid = intern.makeForm("invalid form", "Nowhere");
 		std::cout << BLUE("*********") << std::endl;
 		std::cout << *invalid << std::endl;
 		std::cout << BLUE("*********") << std::endl;
-		if (invalid) {
-			invalid->beSigned(leo);
-			invalid->execute(leo);
-		}
-		delete invalid;
+		invalid->beSigned(leo);
+		invalid->execute(leo);
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	std::cout << std::endl;
+	delete invalid;
+
 	return 0;
 }
