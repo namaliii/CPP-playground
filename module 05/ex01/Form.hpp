@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:24:23 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/22 20:03:16 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:57:29 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Bureaucrat;
 
 class Form {
 	private:
-		const		std::string name;
-		bool 		signedStatus;
-		const int	signGrade;
-		const int	execGrade;
+		const std::string	name;
+		bool 				signedStatus;
+		const int			signGrade;
+		const int			execGrade;
 	public:
 
 		class GradeTooHighException : public std::exception {
