@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:25:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/03 13:43:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:53:10 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void) {
 			shrubbery->execute(leo);
 		}
 		delete shrubbery;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << GREEN("\nTest 2:\n") << std::endl;
@@ -41,7 +41,7 @@ int main(void) {
 			robotomy->execute(leo);
 		}
 		delete robotomy;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << GREEN("\nTest 3:\n") << std::endl;
@@ -55,7 +55,7 @@ int main(void) {
 			pardon->execute(leo);
 		}
 		delete pardon;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << GREEN("\nTest 4:\n") << std::endl;
@@ -69,7 +69,7 @@ int main(void) {
 			invalid->execute(leo);
 		}
 		delete invalid;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << std::endl;

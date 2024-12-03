@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:25:32 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/28 19:09:25 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:52:57 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void Bureaucrat::executeForm(const AForm& form) {
 	try {
 		form.execute(*this);
 		std::cout << name << " executed " << form.getName() << "." << std::endl;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr<< name << " couldn't execute "
 			<< form.getName() << ": " << e.what() << std::endl;
 	}

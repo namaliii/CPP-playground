@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:25:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:47:26 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:53:27 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int main(void) {
 		std::cout << navid << std::endl;
 		navid.signForm(shrubbery1);
 		navid.executeForm(shrubbery1);
-	} catch (std::exception &e) {
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	try {
 		std::cout << leo << std::endl;
 		leo.executeForm(shrubbery1);
-	} catch (std::exception &e) {
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 	RobotomyCreationForm robotomy("robot");
@@ -48,7 +48,7 @@ int main(void) {
 		std::cout << leo << std::endl;
 		leo.signForm(robotomy);
 		leo.executeForm(robotomy);
-	} catch (std::exception &e) {
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -63,7 +63,7 @@ int main(void) {
 		std::cout << anna << std::endl;
 		anna.signForm(pardon);
 		anna.executeForm(pardon);
-	} catch (std::exception &e) {
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
