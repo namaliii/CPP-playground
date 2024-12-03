@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:24:30 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/28 19:05:41 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:39:09 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ int AForm::getExecGrade() const {
 }
 
 void AForm::beSigned(const Bureaucrat& b) {
-	if (b.getGrade() <= signGrade)
+	if (b.getGrade() <= signGrade) {
 		signedStatus = true;
-	else
+		std::cout << "Form " << name << " has been signed by " << b.getName() << "." << std::endl;
+	} else
 		throw GradeTooLowException();
 }
 
@@ -79,11 +80,8 @@ std::ostream& operator<<(std::ostream& os, const AForm& form) {
 		os << "Form Name: " << form.getName() << "\n"
 		<< "Signed: " << (form.isSigned() ? "Yes" : "No") << "\n"
 		<< "Grade required to sign: " << form.getSignGrade() << "\n"
-		<< "Grade required to execute: " << form.getExecGrade();
-		const ShrubberyCreationForm* shrubberyForm = dynamic_cast<const ShrubberyCreationForm*>(&form);
-		if (shrubberyForm) {
-			os << "\nTarget: " << shrubberyForm->getTarget();
-		}
+		<< "Grade required to execute: " << form.getExecGrade() << "\n"
+		<< "Target: " << form.getTarget();
 	} catch (const std::exception& e) {
 		 os << "Error: " << e.what() << std::endl;
         return os;

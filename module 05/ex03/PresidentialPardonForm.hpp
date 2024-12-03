@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:18:58 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 14:19:42 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:24:10 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm();
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& rhs);
 
+		const std::string& getTarget() const override;
 		void execute(const Bureaucrat& executor) const override;
 };
 

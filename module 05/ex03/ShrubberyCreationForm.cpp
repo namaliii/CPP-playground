@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:48:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:52:23 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:41:39 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,16 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
+const std::string& ShrubberyCreationForm::getTarget() const {
+	return target;
+}
+
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	verifyExecution(executor);
 
 	std::ofstream outfile(target + "_shrubbery");
 	if (outfile.is_open()) {
+		std::cout << target << " shrubbery has been planted successfully!" << std::endl;
 		outfile << "    c    \n";
 		outfile << "   c c    \n";
 		outfile << "  cccccc  \n";
@@ -44,8 +49,4 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	} else {
 		throw std::ios_base::failure("Failed to create file.");
 	}
-}
-
-const std::string& ShrubberyCreationForm::getTarget() const {
-	return target;
 }

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:14:27 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:52:45 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:23:52 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
 
+		const std::string& getTarget() const override;
 		void execute(const Bureaucrat& executor) const override;
-		const std::string& getTarget() const;
 };
 
 #endif

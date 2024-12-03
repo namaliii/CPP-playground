@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:24:23 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/27 22:32:53 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:21:40 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ class AForm {
 		AForm& operator=(const AForm& rhs);
 
 		const std::string& getName() const;
+		virtual const std::string& getTarget() const = 0;
 		bool isSigned() const;
 		int getSignGrade() const;
 		int getExecGrade() const;

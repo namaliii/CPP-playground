@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:46 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/28 17:45:24 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:23:26 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 		AForm::operator=(rhs);
 	}
 	return *this;
+}
+
+const std::string& RobotomyRequestForm::getTarget() const {
+	return target;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {

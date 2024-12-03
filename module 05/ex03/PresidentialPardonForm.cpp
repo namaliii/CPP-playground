@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:19:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/11/25 15:27:31 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:24:33 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const \
 		AForm::operator=(rhs);
 	}
 	return *this;
+}
+
+const std::string& PresidentialPardonForm::getTarget() const {
+	return target;
 }
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
