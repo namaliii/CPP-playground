@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 21:14:57 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/08 17:59:45 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:01:51 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int main() {
 	Data original = {42, "Hello, World!"};
-
 	uintptr_t raw = Serializer::serialize(&original);
-
 	Data* result = Serializer::deserialize(raw);
+	
 	std::cout << BLUE("\n* ADDRESSES *") << std::endl;
 	std::cout << GREEN("Original address: ") << &original << std::endl;
 	std::cout << GREEN("Deserialized address: ") << result << std::endl;
