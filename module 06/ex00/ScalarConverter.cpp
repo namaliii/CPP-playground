@@ -6,11 +6,15 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:15:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/06 20:19:18 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/08 17:28:02 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string& literal) {
 	try {
