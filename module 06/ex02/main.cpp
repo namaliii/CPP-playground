@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:11:24 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/08 18:45:09 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/09 22:32:21 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,29 @@ Base* generate(void) {
 }
 
 void identify(Base* p) {
-	if (dynamic_cast<A*>(p)) {
+	if (p == nullptr) {
+		std::cerr << "Null pointer received!" << std::endl;
+		return;
+	}
+	if (dynamic_cast<A*>(p))
 		std::cout << "This object is of class A" << std::endl;
-	} else if (dynamic_cast<B*>(p)) {
+	else if (dynamic_cast<B*>(p))
 		std::cout << "This object is of class B" << std::endl;
-	} else if (dynamic_cast<C*>(p)) {
+	else if (dynamic_cast<C*>(p))
 		std::cout << "This object is of class C" << std::endl;
-	} else
-		std::cout << "BOBER" << std::endl;
 }
 
 void identify(Base& p) {
-	if (dynamic_cast<A*>(&p)) {
-		std::cout << "This object is of class A" << std::endl;
-		return;
+	try {
+		if (dynamic_cast<A*>(&p))
+			std::cout << "This object is of class A" << std::endl;
+		else if (dynamic_cast<B*>(&p))
+			std::cout << "This object is of class B" << std::endl;
+		else if (dynamic_cast<C*>(&p))
+			std::cout << "This object is of class C" << std::endl;
+	} catch (const std::bad_cast& e) {
+		std::cout << "Error: Bad cast exception" << std::endl;
 	}
-	if (dynamic_cast<B*>(&p)) {
-		std::cout << "This object is of class B" << std::endl;
-		return;
-	}
-	if (dynamic_cast<C*>(&p)) {
-		std::cout << "This object is of class C" << std::endl;
-		return;
-	}
-	std::cout << "This object does not belong to any of the A, B, C classes." << std::endl;
 }
 
 int main(void) {
@@ -78,6 +77,7 @@ int main(void) {
 	std::cout << RED("\nTrying to identify invalid object:\n");
 	identify(invalid);
 
+	delete invalid;
 	delete ptr1;
 	delete ptr2;
 	delete ptr3;
