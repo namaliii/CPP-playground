@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:15:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/08 17:28:02 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/09 22:03:05 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,69 @@ ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::~ScalarConverter() {}
 
+bool isValidLiteral(const std::string& literal) {
+	bool hasDot = false;
+	bool hasF = false;
+
+	for (size_t i = 0; i < literal.length(); ++i) {
+		char c = literal[i];
+		if (c == '.') {
+			if (hasDot || hasF)
+				return false;
+			hasDot = true;
+		} else if (c == 'f') {
+			if (i != literal.length() - 1)
+				return false;
+			hasF = true;
+		} else if (!std::isdigit(c) && c != '-' && c != '+') {
+			return false;
+		}
+
+		if ((c == '-' || c == '+') && i != 0)
+			return false;
+	}
+	return true;
+}
+
+bool handleSpecialLiterals(const std::string& literal) {
+	if (literal == "-inff" || literal == "+inff" || literal == "nanf") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << literal << std::endl;
+		std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
+		return true;
+	}
+	if (literal == "-inf" || literal == "+inf" || literal == "nan") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << literal << "f" << std::endl;
+		std::cout << "double: " << literal << std::endl;
+		return true;
+	}
+	return false;
+}
+
 void ScalarConverter::convert(const std::string& literal) {
-	try {
 		char	c;
 		int		i;
 		float	f;
 		double	d;
 
-		if (literal.length() == 1) {
-			c = literal[0];
-			std::cout << "char: '" << c << "'" << std::endl;
-			std::cout << "int: " << static_cast<int>(c) << std::endl;
-			std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(c) << std::endl;
-			return;
-		}
-		if (literal == "-inff" || literal == "+inff" || literal == "nanf") {
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << literal << std::endl;
-			std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
-			return;
-		} else if (literal == "-inf" || literal == "+inf" || literal == "nan") {
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << literal << "f" << std::endl;
-			std::cout << "double: " << literal << std::endl;
-			return;
-		}
+	if (literal.length() == 1 && !isdigit(literal[0])) {
+	c = literal[0];
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	return;
+	}
+	if (handleSpecialLiterals(literal))
+		return;
+	if (!isValidLiteral(literal)) {
+		std::cerr << "Error: Invalid literal" << std::endl;
+		return;
+	}
+	try {
 		if (literal.find('.') == std::string::npos) {
 			i = std::stoi(literal);
 			if (i >= 32 && i <= 126)
