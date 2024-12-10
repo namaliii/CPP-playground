@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:15:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/09 22:03:05 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:26:37 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,19 @@ bool handleSpecialLiterals(const std::string& literal) {
 }
 
 void ScalarConverter::convert(const std::string& literal) {
-		char	c;
-		int		i;
-		float	f;
-		double	d;
+	char c;
+	int i;
+	float f;
+	double d;
 
 	if (literal.length() == 1 && !isdigit(literal[0])) {
-	c = literal[0];
-	std::cout << "char: '" << c << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
-	return;
+		c = literal[0];
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "char: '" << c << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(c) << std::endl;
+		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << std::endl;
+		return;
 	}
 	if (handleSpecialLiterals(literal))
 		return;
@@ -79,6 +80,7 @@ void ScalarConverter::convert(const std::string& literal) {
 		return;
 	}
 	try {
+		std::cout << std::fixed << std::setprecision(1); // Ustawiamy precyzję raz
 		if (literal.find('.') == std::string::npos) {
 			i = std::stoi(literal);
 			if (i >= 32 && i <= 126)
@@ -104,7 +106,6 @@ void ScalarConverter::convert(const std::string& literal) {
 				std::cout << "int: impossible" << std::endl;
 			else
 				std::cout << "int: " << static_cast<int>(d) << std::endl;
-			std::cout << std::fixed << std::setprecision(1);
 			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 		}
