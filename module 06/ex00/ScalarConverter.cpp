@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:15:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/10 15:26:37 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:44:26 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ void ScalarConverter::convert(const std::string& literal) {
 
 	if (literal.length() == 1 && !isdigit(literal[0])) {
 		c = literal[0];
-		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "char: '" << c << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << std::endl;
+		std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 		return;
 	}
 	if (handleSpecialLiterals(literal))
@@ -80,7 +79,6 @@ void ScalarConverter::convert(const std::string& literal) {
 		return;
 	}
 	try {
-		std::cout << std::fixed << std::setprecision(1); // Ustawiamy precyzję raz
 		if (literal.find('.') == std::string::npos) {
 			i = std::stoi(literal);
 			if (i >= 32 && i <= 126)
@@ -88,8 +86,8 @@ void ScalarConverter::convert(const std::string& literal) {
 			else
 				std::cout << "char: Non-displayable" << std::endl;
 			std::cout << "int: " << i << std::endl;
-			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(i) << std::endl;
+			std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+			std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 		} else {
 			if (literal.back() == 'f') {
 				f = std::stof(literal);
@@ -106,8 +104,14 @@ void ScalarConverter::convert(const std::string& literal) {
 				std::cout << "int: impossible" << std::endl;
 			else
 				std::cout << "int: " << static_cast<int>(d) << std::endl;
-			std::cout << "float: " << f << "f" << std::endl;
-			std::cout << "double: " << d << std::endl;
+
+			if (f == static_cast<int>(f)) {
+				std::cout << "float: " << f << ".0f" << std::endl;
+				std::cout << "double: " << d << ".0" << std::endl;
+			} else {
+				std::cout << "float: " << f << "f" << std::endl;
+				std::cout << "double: " << d << std::endl;
+			}
 		}
 	} catch (const std::exception& e) {
 		std::cerr << "Error: Invalid literal" << std::endl;
