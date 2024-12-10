@@ -6,13 +6,12 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:09:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/10 18:15:36 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:20:53 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEMPLATES_HPP
 #define TEMPLATES_HPP
-
 
 #include <iostream>
 #include <string>
