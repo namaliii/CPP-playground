@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 21:39:22 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/10 21:58:20 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/12 20:05:51 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,22 @@
 #define GREEN(text) "\033[38;5;28m" text "\033[0m"
 #define BLUE(text) "\033[38;5;32m" text "\033[0m"
 #define YELLOW(text) "\033[38;5;220m" text "\033[0m"
+#define RED(text) "\033[38;5;160m" text "\033[0m"
 
 template <typename T>
 class Array {
 	private:
 		T* _array;
-		unsigned int _size;
+		size_t _size;
 	public:
 		Array();
-		Array(unsigned int n);
+		Array(size_t n);
 		Array(const Array& other);
 		~Array();
 		Array& operator=(const Array& other);
-		T& operator[](unsigned int index);
-        const T& operator[](unsigned int index) const;
-		unsigned int size() const;
+		T& operator[](size_t index);
+        const T& operator[](size_t index) const;
+		size_t size() const;
 };
 
 #include "Array.tpp"

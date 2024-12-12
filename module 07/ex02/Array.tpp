@@ -19,11 +19,11 @@ template <typename T>
 Array<T>::Array() : _array(nullptr), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]()), _size(n) {}
+Array<T>::Array(size_t n) : _array(new T[n]()), _size(n) {}
 
 template <typename T>
 Array<T>::Array(const Array& other) : _array(new T[other._size]), _size(other._size) {
-	for (unsigned int i = 0; i < _size; ++i) {
+	for (size_t i = 0; i < _size; ++i) {
 		_array[i] = other._array[i];
 	}
 }
@@ -40,10 +40,9 @@ Array<T>& Array<T>::operator=(const Array& other) {
 	}
 
 	T* new_array = new T[other._size];
-	for (unsigned int i = 0; i < other._size; ++i) {
+	for (size_t i = 0; i < other._size; ++i) {
 		new_array[i] = other._array[i];
 	}
-
 	delete[] _array;
 
 	_array = new_array;
@@ -52,7 +51,7 @@ Array<T>& Array<T>::operator=(const Array& other) {
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned int index) {
+T& Array<T>::operator[](size_t index) {
 	if (index >= _size) {
 		throw std::exception();
 	}
@@ -60,7 +59,7 @@ T& Array<T>::operator[](unsigned int index) {
 }
 
 template <typename T>
-const T& Array<T>::operator[](unsigned int index) const {
+const T& Array<T>::operator[](size_t index) const {
 	if (index >= _size) {
 		throw std::exception();
 	}
@@ -68,7 +67,7 @@ const T& Array<T>::operator[](unsigned int index) const {
 }
 
 template <typename T>
-unsigned int Array<T>::size() const {
+size_t Array<T>::size() const {
 	return _size;
 }
 
