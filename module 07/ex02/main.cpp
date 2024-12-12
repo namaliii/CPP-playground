@@ -76,5 +76,6 @@ int main() {
 	} catch (const std::exception& e) {
 		std::cout << "An exception occurred: " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
 	return 0;
 }
