@@ -49,10 +49,21 @@ int main() {
 		std::cout << std::endl;
 
 		std::cout << GREEN("\nTesting constant array access:") << std::endl;
-		const Array<int> arr5(5);
+		const Array<double> arr5(5);
 		std::cout << BLUE("arr5 elements (read-only): ");
 		for (size_t i = 0; i < arr5.size(); ++i) {
 			std::cout << arr5[i] << " ";
+		}
+		std::cout << std::endl;
+		std::cout << GREEN("\nTesting Array<std::string> parameterized constructor:") << std::endl;
+		Array<std::string> arr_string(4);
+		arr_string[0] = "Hi,";
+		arr_string[1] = "it's";
+		arr_string[2] = "your";
+		arr_string[3] = "array!";
+		std::cout << BLUE("arr_string elements (string): ");
+		for (size_t i = 0; i < arr_string.size(); ++i) {
+			std::cout << arr_string[i] << " ";
 		}
 		std::cout << std::endl;
 		std::cout << GREEN("\nTesting out of bounds exception:") << std::endl;
@@ -65,6 +76,5 @@ int main() {
 	} catch (const std::exception& e) {
 		std::cout << "An exception occurred: " << e.what() << std::endl;
 	}
-	std::cout << std::endl;
 	return 0;
 }
