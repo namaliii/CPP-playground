@@ -6,14 +6,11 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:02:38 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/13 23:31:28 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/13 23:33:13 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include "Span.hpp"
-#include <iostream>
-#include <list>
 
 int main() {
 	std::cout << YELLOW("\n* TEST 1 *\n") << std::endl;
