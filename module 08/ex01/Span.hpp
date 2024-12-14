@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:02:20 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/13 23:33:28 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:03:56 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <list>
+#include <limits>
 
 #define BLUE(text) "\033[38;5;32m" text "\033[0m"
 #define GREEN(text) "\033[38;5;28m" text "\033[0m"
