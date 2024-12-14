@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:02:20 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/14 19:03:56 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:35:43 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Span {
 	public:
 		Span();
 		Span(unsigned int N);
-		Span(const Span &src);
+		Span(const Span& src);
 		~Span();
 		Span& operator=(const Span& rhs);
 
