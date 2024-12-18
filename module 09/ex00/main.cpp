@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:06 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/17 21:29:22 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/18 22:00:51 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 int main(int argc, char** argv) {
 	if (argc != 2) {
-		std::cerr << "Error: could not open file." << std::endl;
+		std::cerr << "Error: wrong number of args" << std::endl;
 		return 1;
 	}
 
 	BitcoinExchange exchange;
-	exchange.parseData(argv[1]);
-
-	const std::map<std::string, float>& data = exchange.getDataMap();
-	for (const auto& [date, value] : data) {
-		std::cout << "Date: " << date << ", Value: " << value << std::endl;
+	exchange.loadData("data.csv");
+	if (exchange.getDataMap().empty()) {
+		std::cerr << "Error: data.csv is empty or invalid." << std::endl;
+		return 1;
 	}
-
+	exchange.processInputFile(argv[1]);
 	return 0;
 }
