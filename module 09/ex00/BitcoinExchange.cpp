@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/18 22:40:42 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:24:10 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,32 @@ void BitcoinExchange::trim(std::string &str) {
 	str.erase(str.find_last_not_of(" \t") + 1);
 }
 
-bool BitcoinExchange::validateValue(const std::string& str_value, float& to_float) {
+bool BitcoinExchange::validateValue(const std::string& str_value, double& to_double) {
 	try {
-		to_float = std::stof(str_value);
-		if (to_float < 0) {
-			std::cerr << "Error: not a positive number." << std::endl;
+		if (str_value.empty()) {
+			std::cerr << RED("Error: value is missing.") << std::endl;
 			return false;
 		}
-		if (to_float > std::numeric_limits<int>::max()) {
-			std::cerr << "Error: too large a number." << std::endl;
+		size_t pos;
+		to_double = std::stof(str_value, &pos);
+		if (pos != str_value.size()) {
+			std::cerr << RED("Error: not a valid number.") << std::endl;
+			return false;
+		}
+		if (to_double < 0) {
+			std::cerr << RED("Error: not a positive number.") << std::endl;
+			return false;
+		}
+		if (to_double > std::numeric_limits<int>::max()) {
+			std::cerr << RED("Error: too large a number.") << std::endl;
 			return false;
 		}
 		return true;
 	} catch (const std::exception&) {
+		std::cerr << RED("Error: not a valid number.") << std::endl;
 		return false;
 	}
 }
-
 
 bool BitcoinExchange::validateDate(const std::string& date) {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
@@ -63,18 +72,14 @@ bool BitcoinExchange::validateDate(const std::string& date) {
 	}
 }
 
-bool BitcoinExchange::parseLine(const std::string &line, char separator,
-	std::string &date, std::string &value) {
-	size_t sep_pos = line.find(separator);
-	if (sep_pos == std::string::npos) {
-		std::cerr << "Error: invalid line format: " << line << std::endl;
-		return false;
+bool BitcoinExchange::parseLine(const std::string& line, char delimiter, std::string& date, std::string& value) {
+	std::istringstream stream(line);
+	if (std::getline(stream, date, delimiter) && std::getline(stream, value)) {
+		trim(date);
+		trim(value);
+		return true;
 	}
-	date = line.substr(0, sep_pos);
-	value = line.substr(sep_pos + 1);
-	trim(date);
-	trim(value);
-	return true;
+	return false;
 }
 
 std::string BitcoinExchange::findClosestDate(const std::string& date) const {
@@ -97,18 +102,19 @@ std::string BitcoinExchange::findClosestDate(const std::string& date) const {
 void BitcoinExchange::loadData(const char *dataFile) {
 	std::ifstream file(dataFile);
 	if (!file.is_open()) {
-		std::cerr << "Error: couldn't open the file!" << std::endl;
+		std::cerr << RED("Error: couldn't open the file!") << std::endl;
 		return;
 	}
-
 	std::string line, date, value;
 	while (std::getline(file, line)) {
 		if (parseLine(line, ',', date, value)) {
-			if (validateDate(date)) {
-				float rate = 0.0f;
-				if (validateValue(value, rate)) {
-					dataMap[date] = rate;
-				}
+			if (line.empty() || line == "date,exchange_rate")
+				continue;
+			try {
+				double rate = std::stof(value);
+				dataMap[date] = rate;
+			} catch (const std::exception& e) {
+				std::cerr << RED("data.csv value exception caught: ") << e.what() << std::endl;
 			}
 		}
 	}
@@ -118,41 +124,36 @@ void BitcoinExchange::loadData(const char *dataFile) {
 void BitcoinExchange::processInputFile(const char *inputFile) {
 	std::ifstream file(inputFile);
 	if (!file.is_open()) {
-		std::cerr << "Error: couldn't open the file!" << std::endl;
+		std::cerr << RED("Error: couldn't open the file!") << std::endl;
 		return;
 	}
 
 	std::string line, date, value;
 	while (std::getline(file, line)) {
+		if (line.empty() || line == "date | value")
+			continue;
 		if (parseLine(line, '|', date, value)) {
-			if (!validateDate(date)) {
-				std::cerr << "Error: invalid date format: " << date << std::endl;
-				continue;
-			}
-			try {
+			if (validateDate(date)) {
 				auto it = dataMap.find(date);
 				if (it == dataMap.end()) {
 					date = findClosestDate(date);
 					it = dataMap.find(date);
 				}
 				if (it != dataMap.end()) {
-					float amount = std::stof(value);
-					float result = amount * it->second;
-					std::cout << date << " => " << value << " = " << result << std::endl;
+					double amount = 0.0f;
+					if (validateValue(value, amount)) {
+						double result = amount * it->second;
+						std::cout << GREEN(date) << GREEN(" => ") << GREEN(value) << GREEN(" = ") << GREEN(result) << std::endl;
+					}
 				} else {
-					std::cerr << "Error: no data available for date: " << date << std::endl;
+					std::cerr << RED("Error: no data available for date: ") << date << std::endl;
 				}
-			} catch (const std::exception&) {
-				std::cerr << "Error: invalid numeric value in input: " << line << std::endl;
+			} else {
+				std::cerr << RED("Error: bad input => ") << RED(date) << std::endl;
 			}
 		} else {
-			std::cerr << "Error: invalid line format in input: " << line << std::endl;
+			std::cerr << RED("Error: bad input => ") << RED(line) << std::endl;
 		}
 	}
 	file.close();
-}
-
-
-const std::map<std::string, float>& BitcoinExchange::getDataMap() const {
-	return dataMap;
 }
