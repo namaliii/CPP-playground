@@ -26,20 +26,24 @@ bool BitcoinExchange::validateValue(const std::string& str_value, double& to_dou
 		size_t pos;
 		to_double = std::stof(str_value, &pos);
 		if (pos != str_value.size()) {
-			std::cerr << RED("Error: not a valid number.") << std::endl;
+			std::cerr << RED("Error: not a valid number: " << str_value) << std::endl;
+			return false;
+		}
+		if (to_double == 0.0 && (str_value[0] == '-' || str_value[0] == '+')) {
+			std::cerr << RED("Error: not a valid number: " << str_value) << std::endl;
 			return false;
 		}
 		if (to_double < 0) {
-			std::cerr << RED("Error: not a positive number.") << std::endl;
+			std::cerr << RED("Error: not a positive number: " << str_value) << std::endl;
 			return false;
 		}
 		if (to_double > std::numeric_limits<int>::max()) {
-			std::cerr << RED("Error: too large a number.") << std::endl;
+			std::cerr << RED("Error: too large a number: " << str_value) << std::endl;
 			return false;
 		}
 		return true;
 	} catch (const std::exception&) {
-		std::cerr << RED("Error: not a valid number.") << std::endl;
+		std::cerr << RED("Error: stof exception caught: '" << str_value << "' is not a valid number.") << std::endl;
 		return false;
 	}
 }
@@ -48,13 +52,17 @@ bool BitcoinExchange::validateDate(const std::string& date) {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
 		return false;
 	}
-
+	for (char c : date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2)) {
+		if (!std::isdigit(c)) {
+			return false;
+		}
+	}
 	try {
 		int year = std::stoi(date.substr(0, 4));
 		int month = std::stoi(date.substr(5, 2));
 		int day = std::stoi(date.substr(8, 2));
 
-		if (year < 1900 || year > 2100) { return false; }
+		if (year < 2009 || year > 2024) { return false; }
 		if (month < 1 || month > 12) { return false; }
 		if (day < 1 || day > 31) { return false; }
 		if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
@@ -145,14 +153,12 @@ void BitcoinExchange::processInputFile(const char *inputFile) {
 						double result = amount * it->second;
 						std::cout << GREEN(date) << GREEN(" => ") << GREEN(value) << GREEN(" = ") << GREEN(result) << std::endl;
 					}
-				} else {
-					std::cerr << RED("Error: no data available for date: ") << date << std::endl;
 				}
 			} else {
-				std::cerr << RED("Error: bad input => ") << RED(date) << std::endl;
+				std::cerr << RED("Error: date not valid => " << date) << std::endl;
 			}
 		} else {
-			std::cerr << RED("Error: bad input => ") << RED(line) << std::endl;
+			std::cerr << RED("Error: bad input => " << line) << std::endl;
 		}
 	}
 	file.close();
