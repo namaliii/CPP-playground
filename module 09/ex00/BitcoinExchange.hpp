@@ -26,6 +26,11 @@
 
 class BitcoinExchange {
 	public:
+		BitcoinExchange() = default;
+		BitcoinExchange(const BitcoinExchange& other) = default;
+		BitcoinExchange& operator=(const BitcoinExchange& other) = default;
+		~BitcoinExchange() = default;
+		
 		void loadData(const char *dataFile);
 		void processInputFile(const char *inputFile);
 
