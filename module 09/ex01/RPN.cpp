@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/10 20:51:44 by anamieta          #+#    #+#             */
+/*   Updated: 2025/01/10 20:56:57 by anamieta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RPN.hpp"
 
 RPN::RPN() {}
@@ -27,6 +39,7 @@ int RPN::performOperation(const std::string &op, int a, int b) {
 		if (b == 0) throw std::logic_error("Division by zero");
 		return a / b;
 	}
+	throw std::invalid_argument("Unknown operator: " + op);
 }
 
 int RPN::calculate(const std::string &expression) {
