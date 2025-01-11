@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/12/19 16:24:10 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/11 21:56:42 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,25 +92,23 @@ bool BitcoinExchange::parseLine(const std::string& line, char delimiter, std::st
 
 std::string BitcoinExchange::findClosestDate(const std::string& date) const {
 	auto it = dataMap.lower_bound(date);
+	if (it == dataMap.begin() && it->first != date) {
+		std::cerr << RED("Error: No earlier date available in the data.csv") << std::endl;
+		return "";
+	}
+	if (it->first != date) {
+		--it;
+	}
 
-	if (it != dataMap.end() && it->first == date) {
-		return it->first;
-	}
-	if (it == dataMap.begin()) {
-		return it->first;
-	} else {
-		auto prev = std::prev(it);
-		if (it == dataMap.end() || std::abs(std::stoi(it->first.substr(0, 4)) - std::stoi(date.substr(0, 4))) < std::abs(std::stoi(prev->first.substr(0, 4)) - std::stoi(date.substr(0, 4)))) {
-			return it->first;
-		}
-		return prev->first;
-	}
+	return it->first;
 }
+
+
 
 void BitcoinExchange::loadData(const char *dataFile) {
 	std::ifstream file(dataFile);
 	if (!file.is_open()) {
-		std::cerr << RED("Error: couldn't open the file!") << std::endl;
+		std::cerr << RED("Error: couldn't open data file " << dataFile) << std::endl;
 		return;
 	}
 	std::string line, date, value;
@@ -132,7 +130,7 @@ void BitcoinExchange::loadData(const char *dataFile) {
 void BitcoinExchange::processInputFile(const char *inputFile) {
 	std::ifstream file(inputFile);
 	if (!file.is_open()) {
-		std::cerr << RED("Error: couldn't open the file!") << std::endl;
+		std::cerr << RED("Error: couldn't open input file " << inputFile) << std::endl;
 		return;
 	}
 
