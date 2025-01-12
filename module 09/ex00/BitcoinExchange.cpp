@@ -6,11 +6,26 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:12 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/11 21:56:42 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:36:27 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+	dataMap = other.dataMap;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
+	if (this != &other) {
+		dataMap = other.dataMap;
+	}
+	return *this;
+}
+
+BitcoinExchange::~BitcoinExchange() {}
 
 void BitcoinExchange::trim(std::string &str) {
 	str.erase(0, str.find_first_not_of(" \t"));
@@ -43,7 +58,8 @@ bool BitcoinExchange::validateValue(const std::string& str_value, double& to_dou
 		}
 		return true;
 	} catch (const std::exception&) {
-		std::cerr << RED("Error: stof exception caught: '" << str_value << "' is not a valid number.") << std::endl;
+		std::cerr << RED("Error: stof exception caught: '" << str_value
+		<< "' is not a valid number.") << std::endl;
 		return false;
 	}
 }
@@ -99,11 +115,8 @@ std::string BitcoinExchange::findClosestDate(const std::string& date) const {
 	if (it->first != date) {
 		--it;
 	}
-
 	return it->first;
 }
-
-
 
 void BitcoinExchange::loadData(const char *dataFile) {
 	std::ifstream file(dataFile);
