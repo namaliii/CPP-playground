@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:52:16 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/16 20:00:47 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:04:57 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class PmergeMe {
 		void sortDeque();
 
 	public:
+		PmergeMe();
 		PmergeMe(int argc, char** argv);
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);

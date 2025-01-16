@@ -6,11 +6,13 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:43:25 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/16 20:40:01 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:01:33 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(int argc, char** argv) {
 	this->vecInput = parseNumbers<std::vector<int>>(argc, argv);
