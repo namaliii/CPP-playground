@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:43:25 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/16 21:01:33 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:10:42 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,12 @@ void PmergeMe::sortDeque() {
 		deqMain = deqInput;
 		return;
 	}
+	if (deqInput.size() == 2) {
+		deqMain = deqInput;
+		if (!isSorted(deqMain))
+			std::swap(deqMain[0], deqMain[1]);
+		return;
+  	}
 	for (size_t i = 0; i + 1 < deqInput.size(); i += 2) {
 		std::vector<int> couple = { std::max(deqInput[i], deqInput[i + 1]), std::min(deqInput[i], deqInput[i + 1]) };
 		deqPairs.push_back(couple);
