@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:12 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/12 14:36:27 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:48:44 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool BitcoinExchange::validateValue(const std::string& str_value, double& to_dou
 			std::cerr << RED("Error: not a positive number: " << str_value) << std::endl;
 			return false;
 		}
-		if (to_double > std::numeric_limits<int>::max()) {
+		if (to_double > 1000) {
 			std::cerr << RED("Error: too large a number: " << str_value) << std::endl;
 			return false;
 		}
