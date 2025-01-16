@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:43:25 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/16 18:11:56 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:40:01 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ void PmergeMe::sortVector() {
 		vecMain = vecInput;
 		return;
 	}
+	if (vecInput.size() == 2) {
+		vecMain = vecInput;
+		if (!isSorted(vecMain))
+			std::swap(vecMain[0], vecMain[1]);
+		return;
+  	}
 	// Reserve memory to avoid multiple reallocations and improve performance
 	vecPairs.reserve(vecInput.size() / 2);
 	vecAppend.reserve(vecInput.size() / 2);
@@ -107,7 +113,7 @@ void PmergeMe::sortAndDisplay() {
 		std::cout << "Time to process a range of " << vecInput.size()
 					<< " elements with std::vector: "
 					<< std::fixed << std::setprecision(3)
-					<< duration.count() << " us" << std::endl;
+					<< duration.count() << " ms" << std::endl;
 
 		start = std::chrono::high_resolution_clock::now();
 		sortDeque();
@@ -117,5 +123,5 @@ void PmergeMe::sortAndDisplay() {
 		std::cout << "Time to process a range of " << deqInput.size()
 					<< " elements with std::deque: "
 					<< std::fixed << std::setprecision(3)
-					<< duration.count() << " us" << std::endl;
+					<< duration.count() << " ms" << std::endl;
 }
