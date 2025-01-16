@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:29:08 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/12 14:35:42 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:00:03 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class BitcoinExchange {
 		bool validateDate(const std::string& date);
 		bool parseLine(const std::string& line, char delimiter, std::string& date, std::string& value);
 		std::string findClosestDate(const std::string& date) const;
+		
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& other);

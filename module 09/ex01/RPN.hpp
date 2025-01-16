@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:51:52 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/10 20:51:53 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:59:59 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class RPN {
 
 		bool isOperator(const std::string &token);
 		int performOperation(const std::string &op, int a, int b);
+		
 	public:
 		RPN();
 		RPN(const RPN &other);

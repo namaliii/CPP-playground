@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 20:52:16 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/16 17:05:35 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:00:47 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@
 #define RED(text) "\033[38;5;160m" << text << "\033[0m"
 
 class PmergeMe {
-	public:
-		PmergeMe(int argc, char** argv);
-		PmergeMe(const PmergeMe& other);
-		PmergeMe& operator=(const PmergeMe& other);
-		~PmergeMe();
-
-		void sortAndDisplay();
-
 	private:
 		std::deque<std::vector<int>> deqPairs;
 		std::deque<int> deqMain;
@@ -46,6 +38,14 @@ class PmergeMe {
 
 		void sortVector();
 		void sortDeque();
+
+	public:
+		PmergeMe(int argc, char** argv);
+		PmergeMe(const PmergeMe& other);
+		PmergeMe& operator=(const PmergeMe& other);
+		~PmergeMe();
+
+		void sortAndDisplay();
 };
 
 #include "PmergeMe.tpp"
