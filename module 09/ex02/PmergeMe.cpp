@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:43:25 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/14 22:28:17 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:11:56 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void PmergeMe::sortVector() {
 		vecMain = vecInput;
 		return;
 	}
+	// Reserve memory to avoid multiple reallocations and improve performance
+	vecPairs.reserve(vecInput.size() / 2);
+	vecAppend.reserve(vecInput.size() / 2);
+
 	for (size_t i = 0; i + 1 < vecInput.size(); i += 2) {
 		std::vector<int> couple = { std::max(vecInput[i], vecInput[i + 1]), std::min(vecInput[i], vecInput[i + 1]) };
 		vecPairs.push_back(couple);
@@ -96,7 +100,7 @@ void PmergeMe::sortAndDisplay() {
 		auto start = std::chrono::high_resolution_clock::now();
 		sortVector();
 		auto end = std::chrono::high_resolution_clock::now();
-		auto duration = std::chrono::duration<double, std::micro>(end - start);
+		auto duration = std::chrono::duration<double, std::milli>(end - start);
 
 		std::cout << "After: ";
 		displaySequence(vecMain);
@@ -108,7 +112,7 @@ void PmergeMe::sortAndDisplay() {
 		start = std::chrono::high_resolution_clock::now();
 		sortDeque();
 		end = std::chrono::high_resolution_clock::now();
-		duration = std::chrono::duration<double, std::micro>(end - start);
+		duration = std::chrono::duration<double, std::milli>(end - start);
 
 		std::cout << "Time to process a range of " << deqInput.size()
 					<< " elements with std::deque: "

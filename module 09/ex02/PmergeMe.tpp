@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:49 by anamieta          #+#    #+#             */
-/*   Updated: 2025/01/14 22:14:24 by anamieta         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:36:11 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ template <typename Container>
 		jacob.push_back(1);
 	int i = 2;
 	while (true) {
-		int level = jacob[i - 1] + 2 * jacob[i - 2];
-		jacob.push_back(level);
-		if (size < jacob[i]) break;
+		int next_number = jacob[i - 1] + 2 * jacob[i - 2];
+		jacob.push_back(next_number);
+		if (size < next_number) break;
 		i++;
 	}
 	return jacob;
