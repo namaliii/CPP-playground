@@ -88,6 +88,6 @@ make
 This repository is licensed under the MIT License. See the LICENSE file for more information.
 
 ## **Contact**
-For any questions or inquiries, please contact the repository owner at anamieta@student.42.fr.
+For any questions or inquiries, please contact the repository owner at anamieta@student.42heilbronn.de
 
 Note: This repository is part of the 42 school curriculum and contains exercises and projects designed to teach and test various C++ programming concepts.
