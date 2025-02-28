@@ -28,7 +28,7 @@ The repository is organized into the following modules:
   - `ex00` to `ex03`: Exercises on forms and bureaucrats, including `ShrubberyCreationForm`, `RobotomyRequestForm`, and `PresidentialPardonForm`.
 
 - **module 06**
-  - `ex00` to `ex02`: Serialization and other advanced topics.
+  - `ex00` to `ex02`: Focuses on serialization, including converting objects to storable formats, handling complex data structures, ensuring data integrity, and practical applications such as saving and loading game states or configuration settings.
 
 - **module 07**
   - `ex00` to `ex02`: Template programming and other advanced C++ features.
@@ -37,7 +37,9 @@ The repository is organized into the following modules:
   - `ex00` to `ex02`: Exercises on containers and algorithms.
 
 - **module 09**
-  - `ex00` to `ex02`: Final exercises on advanced topics.
+  - `ex00`: A project related to Bitcoin transactions, focusing on understanding and implementing the basics of blockchain technology, transaction validation, and cryptographic hashing.
+  - `ex01`: Implementation of Reverse Polish Notation (RPN) calculator, which evaluates mathematical expressions written in postfix notation, a method used in stack-based and some programming languages.
+  - `ex02`: Implementation of the Ford-Johnson algorithm, which is an efficient sorting algorithm that combines merge sort and insertion sort to achieve optimal sorting times for small arrays.
 
 ## Example Code
 
@@ -69,19 +71,19 @@ std::string Animal::getType() const {
 void Animal::makeSound() const {
     // Virtual function for making sound
 }
-
+```
 ## **How to Build**
 Each exercise contains a Makefile for building the project. To build a specific exercise, navigate to the exercise directory and run:
 
 ```bash
 make
-
+```
 For example, to build module 00/ex00, use:
 
 ```bash
 cd module 00/ex00
 make
-
+```
 ## **License**
 This repository is licensed under the MIT License. See the LICENSE file for more information.
 
