@@ -70,24 +70,22 @@ void Animal::makeSound() const {
     // Virtual function for making sound
 }
 
-## How to Build
+## **How to Build**
 Each exercise contains a Makefile for building the project. To build a specific exercise, navigate to the exercise directory and run:
 
-```cpp
+```bash
 make
 
 For example, to build module 00/ex00, use:
 
-```cpp
+```bash
 cd module 00/ex00
 make
 
-## License
+## **License**
 This repository is licensed under the MIT License. See the LICENSE file for more information.
 
-## Contact
+## **Contact**
 For any questions or inquiries, please contact the repository owner at anamieta@student.42.fr.
 
 Note: This repository is part of the 42 school curriculum and contains exercises and projects designed to teach and test various C++ programming concepts.
-
-Ten plik `README.md` zawiera przegląd repozytorium, strukturę katalogów, przykładowy kod, instrukcje budowania projektów oraz informacje kontaktowe. Możesz dostosować go do swoich potrzeb, dodając więcej szczegółów lub zmieniając formatowanie.
