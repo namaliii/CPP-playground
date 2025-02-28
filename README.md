@@ -7,39 +7,40 @@ This repository contains various C++ projects organized into modules. Each modul
 ## Repository Structure
 
 The repository is organized into the following modules:
-
 - **module 00**
-  - `ex00`: Basic C++ program with a `Makefile` and `megaphone.cpp`.
-  - `ex01`: Simple phone book application with classes `Contact` and `PhoneBook`.
+  - `ex00` to `ex01`: Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and other basic concepts.
 
 - **module 01**
-  - `ex00` to `ex06`: Various exercises including classes, inheritance, and polymorphism.
+  - `ex00` to `ex06`: Memory allocation, pointers to members, references, and switch statements.
 
 - **module 02**
-  - `ex00` to `ex02`: Exercises focusing on fixed-point arithmetic and other concepts.
+  - `ex00` to `ex02`: Ad-hoc polymorphism, operator overloading, and the Orthodox Canonical Class Form.
 
 - **module 03**
-  - `ex00` to `ex03`: Exercises on inheritance, including `ClapTrap`, `ScavTrap`, `FragTrap`, and `DiamondTrap`.
+  - `ex00` to `ex03`: Exercises on inheritance.
 
 - **module 04**
-  - `ex00` to `ex03`: Advanced exercises on polymorphism, abstract classes, and more.
+  - `ex00` to `ex03`: Subtype polymorphism, abstract classes, and interfaces.
 
 - **module 05**
-  - `ex00` to `ex03`: Exercises on forms and bureaucrats, including `ShrubberyCreationForm`, `RobotomyRequestForm`, and `PresidentialPardonForm`.
+  - `ex00` to `ex03`: Repetition and exceptions.
 
 - **module 06**
-  - `ex00` to `ex02`: Focuses on serialization, including converting objects to storable formats, handling complex data structures, ensuring data integrity, and practical applications such as saving and loading game states or configuration settings.
+  - `ex00` to `ex02`: Focus on serialization, including converting objects to storable formats, handling complex data structures, ensuring data integrity, and practical applications such as saving and loading game states or configuration settings. (or something related to C++ casts)
 
 - **module 07**
-  - `ex00` to `ex02`: Template programming and other advanced C++ features.
+  - `ex00` to `ex02`: Template programming.
 
 - **module 08**
-  - `ex00` to `ex02`: Exercises on containers and algorithms.
+  - `ex00` to `ex02`: Templated containers, iterators, and algorithms.
 
 - **module 09**
+  Project focused on STL (Standard Template Library), which is a collection of template classes and functions in C++ designed to provide general-purpose data structures (e.g., vectors, lists, maps) and algorithms (e.g., sorting, searching). It allows programmers to work with data more efficiently, without the need to implement these structures and algorithms manually.
+
   - `ex00`: A project related to Bitcoin transactions, focusing on understanding and implementing the basics of blockchain technology, transaction validation, and cryptographic hashing.
-  - `ex01`: Implementation of Reverse Polish Notation (RPN) calculator, which evaluates mathematical expressions written in postfix notation, a method used in stack-based and some programming languages.
+  - `ex01`: Implementation of a Reverse Polish Notation (RPN) calculator, which evaluates mathematical expressions written in postfix notation, a method used in stack-based and some programming languages.
   - `ex02`: Implementation of the Ford-Johnson algorithm, which is an efficient sorting algorithm that combines merge sort and insertion sort to achieve optimal sorting times for small arrays.
+
 
 ## Example Code
 
